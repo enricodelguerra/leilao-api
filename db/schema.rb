@@ -57,5 +57,5 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_29_015952) do
   add_foreign_key "leilaos", "compradors"
   add_foreign_key "leilaos", "produtos"
   add_foreign_key "leilaos", "vendendors"
-  add_foreign_key "produtos", "vendedors"
+  add_foreign_key "produtos", "usuarios", column: "vendedor_id"
 end
