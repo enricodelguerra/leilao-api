@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_01_29_014030) do
+ActiveRecord::Schema[8.0].define(version: 2025_01_29_015952) do
+  create_table "lances", force: :cascade do |t|
+    t.integer "usuario_id", null: false
+    t.decimal "valor"
+    t.integer "leilao_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["leilao_id"], name: "index_lances_on_leilao_id"
+    t.index ["usuario_id"], name: "index_lances_on_usuario_id"
+  end
+
   create_table "leilaos", force: :cascade do |t|
     t.integer "produto_id", null: false
     t.decimal "preco_minimo"
@@ -42,6 +52,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_29_014030) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "lances", "leilaos"
+  add_foreign_key "lances", "usuarios"
   add_foreign_key "leilaos", "compradors"
   add_foreign_key "leilaos", "produtos"
   add_foreign_key "leilaos", "vendendors"
