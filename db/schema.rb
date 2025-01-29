@@ -25,13 +25,13 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_29_015952) do
     t.integer "produto_id", null: false
     t.decimal "preco_minimo"
     t.decimal "lance_inicial"
-    t.integer "vendendor_id", null: false
+    t.integer "vendedor_id", null: false
     t.integer "comprador_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["comprador_id"], name: "index_leilaos_on_comprador_id"
     t.index ["produto_id"], name: "index_leilaos_on_produto_id"
-    t.index ["vendendor_id"], name: "index_leilaos_on_vendendor_id"
+    t.index ["vendedor_id"], name: "index_leilaos_on_vendedor_id"
   end
 
   create_table "produtos", force: :cascade do |t|
@@ -54,8 +54,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_29_015952) do
 
   add_foreign_key "lances", "leilaos"
   add_foreign_key "lances", "usuarios"
-  add_foreign_key "leilaos", "compradors"
   add_foreign_key "leilaos", "produtos"
-  add_foreign_key "leilaos", "vendendors"
+  add_foreign_key "leilaos", "usuarios", column: "comprador_id"
+  add_foreign_key "leilaos", "usuarios", column: "vendedor_id"
   add_foreign_key "produtos", "usuarios", column: "vendedor_id"
 end
