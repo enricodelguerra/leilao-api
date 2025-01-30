@@ -46,6 +46,6 @@ class LeilaosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def leilao_params
-      params.expect(leilao: [ :produto_id, :preco_minimo, :lance_inicial, :vendendor_id, :comprador_id ])
+      params.expect(leilao: [ :produto_id, :preco_minimo, :lance_inicial, :vendedor_id, :comprador_id ])
     end
 end

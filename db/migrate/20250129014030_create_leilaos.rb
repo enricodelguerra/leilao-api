@@ -5,7 +5,7 @@ class CreateLeilaos < ActiveRecord::Migration[8.0]
       t.decimal :preco_minimo
       t.decimal :lance_inicial
       t.references :vendedor, null: false, foreign_key: { to_table: :usuarios }
-      t.references :comprador, null: false, foreign_key: { to_table: :usuarios }
+      t.references :comprador, null: true, foreign_key: { to_table: :usuarios }
 
       t.timestamps
     end

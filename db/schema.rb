@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_01_29_015952) do
+ActiveRecord::Schema[8.0].define(version: 2025_01_30_223244) do
   create_table "lances", force: :cascade do |t|
     t.integer "usuario_id", null: false
     t.decimal "valor"
@@ -26,7 +26,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_29_015952) do
     t.decimal "preco_minimo"
     t.decimal "lance_inicial"
     t.integer "vendedor_id", null: false
-    t.integer "comprador_id", null: false
+    t.integer "comprador_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["comprador_id"], name: "index_leilaos_on_comprador_id"
